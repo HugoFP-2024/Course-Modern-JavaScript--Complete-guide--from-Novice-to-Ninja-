@@ -1,2 +1,4 @@
 # Course: Modern JavaScript (Complete guide, from Novice to Ninja)
-Esse repositório conterá arquivos referentes a realização do curso Modern JavaScript (Complete guide, from Novice to Ninja), na plataforma Udemy, onde me aprofundarei em recursos da linguagem JavaScript.
+Esse repositório conterá arquivos referentes a realização do curso Modern JavaScript (Complete guide, from Novice to Ninja), na plataforma Udemy, onde me aprofundarei em recursos da linguagem JavaScript. Dísponivel em https://www.udemy.com/course/modern-javascript-from-novice-to-ninja/learn/lecture/14035331?start=465#overview.
+
+This repository will contain files related to the completion of the course Modern JavaScript (Complete Guide, from Novice to Ninja) on the Udemy platform, where I will delve deeper into JavaScript language features. Available in https://www.udemy.com/course/modern-javascript-from-novice-to-ninja/learn/lecture/14035331?start=465#overview.
