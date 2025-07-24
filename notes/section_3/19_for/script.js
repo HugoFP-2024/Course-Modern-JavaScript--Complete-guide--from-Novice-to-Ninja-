@@ -1,8 +1,8 @@
 // For Loops:
 
-// For Loops receive 3 arguments: A variable used as a 'counter'
-//                                A condition to keep runing
-//                                A whey yo increment to that 'counter'
+// For loops receive 3 arguments: A variable used as a 'counter'
+//                                A condition to keep running
+//                                A way to increment that 'counter'
 
 for(let i = 0; i < 5; i++){
     console.log(`In the loop: ${i}`);

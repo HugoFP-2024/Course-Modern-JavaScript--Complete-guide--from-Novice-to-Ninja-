@@ -1,7 +1,7 @@
 // Switch Statements
 
-// Checks for a 'key' argument, and runs it's respective case (Must add a 'break', otherwise it will run all the next ones!)
-// Note: it also considerates the type!
+// Checks for a 'key' argument and runs its respective case (Must add a 'break', otherwise it will run all the following cases!)
+// Note: It also considers the type!
 
 let grade = 'B';
 
@@ -10,10 +10,10 @@ switch (grade) {
         console.log('You got an A!');
         break;
     case 'B':
-        console.log('You got an B!');
+        console.log('You got a B!');
         break;
     case 'C':
-        console.log('You got an C!');
+        console.log('You got a C!');
         break;
     default:
         console.log('Invalid grade!');

@@ -2,18 +2,18 @@
 
 console.log('Hello, world!');
 
-// Strings - Concatenetion
+// String - Concatenation
 let firstName = 'Hugo';
 let lastName = 'Fontolan Piani';
 
 let fullName = firstName + ' ' + lastName;
 console.log(fullName);
 
-// Strings - Template Strings
+// String - Template Literals
 let userName = 'User';
-console.log(`My name is ${userName}`); // You need to use backtickets `` !
+console.log(`My name is ${userName}`); // You need to use backticks `` !
 
-// Strings - Creating HTML Templates
+// String - Creating HTML Templates
 let html = `
     <h2>${firstName}</h2>
     <p>${lastName}</p>
@@ -21,13 +21,13 @@ let html = `
 `;
 console.log(html);
 
-// Strings - Getting Characters 
-console.log(fullName[0]); // Should return the letter 'H'
+// String - Getting Characters 
+console.log(fullName[0]); // Returns the letter 'H'
 
-// Strings - Methods and Properties
-console.log(fullName.length); // Return the length of the string in a 'number'
+// String - Methods and Properties
+console.log(fullName.length); // Returns the length of the string as a number
 
 console.log(fullName.toUpperCase());
-console.log(fullName.toLowerCase()); // Both of them get the respective string and return it in upper case or, lower case
+console.log(fullName.toLowerCase()); // Both return the string in upper case or lower case
 
-let result = userName.indexOf('r'); // Retur the index of the argument in the string
+let result = userName.indexOf('r'); // Returns the index of the argument in the string

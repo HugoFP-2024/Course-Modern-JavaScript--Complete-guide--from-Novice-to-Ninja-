@@ -1,7 +1,7 @@
 // Break and Continue
 
-// Break is used to break us out of the loop, in the condition we want it to
-// Continue is used to skip to the next loop interation
+// Break is used to exit the loop at the condition we want
+// Continue is used to skip to the next loop iteration
 
 const scores = [0, 10, 20, 80];
 

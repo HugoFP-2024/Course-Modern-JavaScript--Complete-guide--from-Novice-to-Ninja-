@@ -1,7 +1,7 @@
 // If Statement
 
 // Responsible for running a code block only if its specified condition equals 'true'
-// Also has the 'else' statement, wich runs another code block if the condition in the 'if' it's not satisfied
+// Also has the 'else' statement, which runs another code block if the condition in the 'if' is not satisfied
 
 let age = 40;
 if (age === 40) {

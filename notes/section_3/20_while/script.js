@@ -1,7 +1,7 @@
 // While Loops:
 
-// Quite similar to For Loops, but with a different sintax
-// It only receives as an argument the condition to keep running
+// Quite similar to For Loops, but with different syntax
+// It only receives the condition to keep running as an argument
 
 let i = 0;
 while (i < 5) {
@@ -9,7 +9,7 @@ while (i < 5) {
     i++;
 }
 
-// We also have the do-while loops, that even if the condition is false, it runs the code block at least once
+// We also have do-while loops, which run the code block at least once, even if the condition is false
 
 let c = 5;
 do {

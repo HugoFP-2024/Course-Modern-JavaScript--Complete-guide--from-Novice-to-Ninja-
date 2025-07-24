@@ -1,4 +1,4 @@
-// Variable ScopeS
+// Variable Scope
 
 // 1. Global Scope:
 // Variables declared outside any function or block are in the global scope.
