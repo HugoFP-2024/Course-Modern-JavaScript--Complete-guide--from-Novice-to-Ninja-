@@ -34,7 +34,7 @@ form.addEventListener('submit', event => {
         else {
             number++;
         }
-    }, 50);
+    }, 25);
 
     // setTimeout(() => {
     //     // Do something.
