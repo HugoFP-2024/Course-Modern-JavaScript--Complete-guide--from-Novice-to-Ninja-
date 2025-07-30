@@ -1,5 +1,5 @@
 // Filter Method
-// It is responsivble for check each elemnt of the array in each iteration and, receive a callback function responsible to run a check that, if the item does not pass, it will be filtered out of the array
+// It is responsible for check each elemnt of the array in each iteration and, receive a callback function responsible to run a check that, if the item does not pass, it will be filtered out of the array
 
 let scores = [15, 20, 5, 25, 40, 10, 15, 25];
 
@@ -21,6 +21,6 @@ const users = [
 // const premiumusers = users.filter(user =>{
 //     return user.premium;
 // });
-const premiumusers = users.filter(user => user.premium);
+const premiumUsers = users.filter(user => user.premium);
 
-console.log(premiumusers);
+console.log(premiumUsers);
