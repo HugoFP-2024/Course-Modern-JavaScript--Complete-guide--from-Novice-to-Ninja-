@@ -20,7 +20,7 @@ const tick = () => {
         <span>${singleDigit(now.getMinutes())}</span>
         <span>${singleDigit(now.getSeconds())}</span>
     `;
-
+    
     clock.innerHTML = html;
 };
 
