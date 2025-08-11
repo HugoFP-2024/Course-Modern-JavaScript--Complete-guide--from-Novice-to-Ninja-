@@ -1,5 +1,5 @@
 // Object Oriented Programming:
-// Think about a moment in your project where you have to store data from a user in an object, and for each user you use the following code:
+// Imagine a situation in your project where you need to store user data in an object, and for each user you use the following code:
 const userOne = {
 
     username: 'Mario',
@@ -15,15 +15,15 @@ const userOne = {
 
 console.log(userOne.username, userOne.login());
 
-// This works, but if you need to create multiple new users, the code can get extensive and a lot of code will be repeated. To avoid that, we can create our own object class constructor function for 'User':
+// This works, but if you need to create multiple users, the code can become repetitive and lengthy. To avoid that, we can create our own class constructor function for 'User':
 class User {
     constructor(username) {
-        // Set up properties of user:
+        // Set up properties for the user:
         this.username = username;
         this.score = 0;
     }
 
-    // Setting up methods:
+    // Define methods for the user:
     login() {
         console.log(`${this.username} has logged in!`);
         return this;
@@ -39,10 +39,10 @@ class User {
     }
 }
 
-// The 'new' keyword
-// 1 - it creates a new empty object {}, creating an instance of the User class
-// 2 - it binds the value of 'this' to the new empty object
-// 3 - it calls the constructor function to 'build' the object
+// The 'new' keyword:
+// 1 - Creates a new empty object {}, which is an instance of the User class.
+// 2 - Binds the value of 'this' to the new empty object.
+// 3 - Calls the constructor function to 'build' the object.
 const userTwo = new User('Mario');
 console.log(userTwo);
 
@@ -50,7 +50,7 @@ userTwo.login();
 userTwo.logout();
 userTwo.incScore();
 
-// We can chain methods by applying the 'return this' keyword, making the method return the instance of the object, instead of returning undefined by default.
+// We can chain methods by returning 'this' from each method, which returns the instance of the object instead of undefined by default.
 userTwo.login().incScore().incScore();
 
 // Benefits of using classes:

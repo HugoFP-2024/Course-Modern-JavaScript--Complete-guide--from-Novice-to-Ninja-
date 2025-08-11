@@ -1,14 +1,14 @@
 // Class Inheritance:
-// Class Inheritance is a way for us to create a new class that will have the same properties and methods of another class, but may have some new ones exclusive to itself. For example, an admin has the same properties as a regular user, but it may have some methods that a user doesn't have, like deleting a user.
+// Class inheritance allows us to create a new class that has the same properties and methods as another class, but may also have some new ones exclusive to itself. For example, an admin has the same properties as a regular user, but may have methods that a user does not have, like deleting a user.
 
 class User {
     constructor(username) {
-        // Set up properties of user:
+        // Set up properties for the user:
         this.username = username;
         this.score = 0;
     }
 
-    // Setting up methods:
+    // Define methods for the user:
     login() {
         console.log(`${this.username} has logged in!`);
         return this; // Returning 'this' allows for method chaining
@@ -26,12 +26,12 @@ class User {
 
 class Admin extends User {
     constructor(username, title) {
-        // The super keyword is used to access the constructor properties from the parent class, in this case, User, making it possible to create the same properties in the first constructor, but adding new ones. Super MUST be called in a derived class before creating a new property.
+        // The super keyword is used to access the constructor of the parent class (User), allowing us to initialize the same properties as in the parent, and add new ones. Super MUST be called in a derived class before creating new properties.
         super(username);
         this.title = title;
     }
     deleteUser(user) {
-        // This method filters the users array to remove the specified user
+        // This method filters the users array to remove the specified user.
         users = users.filter(u => {
             return u.username !== user.username;
         });
@@ -48,5 +48,5 @@ userThree.deleteUser(userTwo);
 console.log(users);
 
 // Note: This is a simplified example of inheritance. In real-world applications:
-// - We might use private fields (# prefix) to protect data
-// - We might implement getters and setters for controlled access to properties
+// - We might use private fields (# prefix) to protect data.
+// - We might implement getters and setters for controlled access to properties.

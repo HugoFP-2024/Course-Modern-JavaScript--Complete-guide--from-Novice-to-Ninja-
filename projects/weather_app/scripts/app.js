@@ -9,6 +9,8 @@ const time = document.querySelector('img.time');
 // Select the image element for weather icons
 const icon = document.querySelector('.icon img');
 
+const forecast = new Forecast();
+
 const updateUI = data => {
 
     // const cityDets = data.cityDets;
@@ -43,21 +45,21 @@ const updateUI = data => {
     card.classList.contains('d-none') ? card.classList.remove('d-none') : none;
 };
 
-const updateCity = async (city) => {
+// const updateCity = async (city) => {
 
-    // Fetch city details and weather information using asynchronous functions
-    const cityDets = await getCity(city);
-    const weather = await getWeather(cityDets.Key);
+//     // Fetch city details and weather information using asynchronous functions
+//     const cityDets = await getCity(city);
+//     const weather = await getWeather(cityDets.Key);
 
-    // return {
-    //     cityDets: cityDets,
-    //     weather: weather
-    // };
-    return {
-        cityDets,
-        weather
-    };
-};
+//     // return {
+//     //     cityDets: cityDets,
+//     //     weather: weather
+//     // };
+//     return {
+//         cityDets,
+//         weather
+//     };
+// };
 
 cityForm.addEventListener('submit', event => {
 
@@ -69,7 +71,7 @@ cityForm.addEventListener('submit', event => {
     cityForm.reset();
 
     // Update the UI with the new city and handle any errors
-    updateCity(city)
+    forecast.updateCity(city)
         .then(data => updateUI(data))
         .catch(err => console.log(err));
 
@@ -79,7 +81,7 @@ cityForm.addEventListener('submit', event => {
 
 if (localStorage.getItem('city')) {
     // If a city is stored in local storage, update the UI with its weather details
-    updateCity(localStorage.getItem('city'))
+    forecast.updateCity(localStorage.getItem('city'))
         .then(data => updateUI(data))
         .catch(err => console.log(err));
 }
