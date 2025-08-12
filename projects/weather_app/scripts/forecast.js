@@ -1,4 +1,4 @@
-class Forecast{
+export class Forecast{
     constructor(){
         this.key = "MVMC9LAWjHa9eiHQhGVsb4Ze5TzizoEK";
         this.weatherURI = 'http://dataservice.accuweather.com/currentconditions/v1/';
