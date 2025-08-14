@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, onSnapshot, addDoc, deleteDoc, doc, query, where, serverTimestamp, orderBy } from "firebase/firestore";
+import { getFirestore, collection, getDocs, getDoc, onSnapshot, addDoc, deleteDoc, doc, query, where, serverTimestamp, orderBy, updateDoc } from "firebase/firestore";
+import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 
 // Access configuration for the Firestore database.
 const firebaseConfig = {
@@ -15,10 +16,11 @@ const firebaseConfig = {
 // Initializing the Firestore instance:
 initializeApp(firebaseConfig);
 
-// Getting a reference to both the database in the constant 'db' and the collection 'books' in the constant 'colRef':
+// Getting a reference to both the database in the constant 'db', the auth and the collection 'books' in the constant 'colRef':
 const db = getFirestore();
+const colRef = collection(db, 'books');
 
-const colRef = collection(db, 'books')
+const auth = getAuth();
 
 // Creating a query for querying the database:
 // const q = query(colRef, where('author', '==', 'Claudia Renata'), orderBy('title', 'desc'));
@@ -39,13 +41,13 @@ const q = query(colRef, orderBy('createdAt'));
 
 // Real-time listener for database changes
 // onSnapshot(colRef, snapshot => {
-onSnapshot(q, snapshot => {
+const unsubCol = onSnapshot(q, snapshot => {
   let books = [];
   snapshot.docs.forEach(doc => {
     books.push({ ...doc.data(), id: doc.id });
   });
   console.log(books);
-})
+});
 
 // Adding documents:
 const addBook = document.querySelector('.add');
@@ -60,7 +62,7 @@ addBook.addEventListener('submit', event => {
     .then(() => {
       addBook.reset();
     });
-})
+});
 
 // Deleting documents:
 const deleteBook = document.querySelector('.delete');
@@ -75,4 +77,85 @@ deleteBook.addEventListener('submit', event => {
     .then(() => {
       deleteBook.reset();
     });
+});
+
+// Getting a single document:
+const docRef = doc(db, 'books', 'WEtV1rSihbODQb7FJA1g');
+getDoc(docRef)
+  .then(doc => {
+    console.log(doc.data(), doc.id);
+  });
+
+const unsubDoc = onSnapshot(docRef, doc => {
+  console.log(doc.data(), doc.id);
+});
+
+// Updating a document:
+const updateBook = document.querySelector('.update');
+updateBook.addEventListener('submit', event =>{
+  event.preventDefault();
+
+  const docRef = doc(db, 'books', updateBook.id.value);
+
+  updateDoc(docRef, {
+    title:'Updated title'
+  })
+  .then(() => {
+    updateBook.reset();
+  });
+});
+
+// Sign-up: (New users automatically sign up!)
+const signupForm = document.querySelector('.createUser');
+signupForm.addEventListener('submit', event => {
+  event.preventDefault();
+
+  createUserWithEmailAndPassword(auth, signupForm.email.value, signupForm.password.value)
+    .then(cred => {
+      console.log(cred.user);
+    })
+    .catch(err => {
+      console.log(err.message);
+    });
+
+  signupForm.reset();
 })
+
+// Logging in and out:
+
+const login = document.querySelector('.login');
+login.addEventListener('submit', event => {
+  event.preventDefault();
+  
+  signInWithEmailAndPassword(auth, login.email.value, login.password.value)
+    .then(cred => {
+      console.log('User loggedin:', cred.user);
+    })
+    .catch(err =>{
+      console.log(err.message);
+    });
+});
+
+const logout = document.querySelector('.logout');
+logout.addEventListener('click', () => {
+  signOut(auth)
+    .then(() => {
+      console.log('User has logged out.');
+    })
+    .catch(err =>{
+      console.log(err.message);
+    })  
+});
+
+// Subscribingto Auth Changes:
+const unsubAuth = onAuthStateChanged(auth, user => {
+  console.log(user);
+})
+
+// Unsubscribe:
+const unsubButton = document.querySelector('.unsub');
+unsubButton.addEventListener('click', () =>{
+  unsubDoc();
+  unsubCol();
+  unsubAuth();
+});
