@@ -92,17 +92,17 @@ const unsubDoc = onSnapshot(docRef, doc => {
 
 // Updating a document:
 const updateBook = document.querySelector('.update');
-updateBook.addEventListener('submit', event =>{
+updateBook.addEventListener('submit', event => {
   event.preventDefault();
 
   const docRef = doc(db, 'books', updateBook.id.value);
 
   updateDoc(docRef, {
-    title:'Updated title'
+    title: 'Updated title'
   })
-  .then(() => {
-    updateBook.reset();
-  });
+    .then(() => {
+      updateBook.reset();
+    });
 });
 
 // Sign-up: (New users automatically sign up!)
@@ -126,12 +126,12 @@ signupForm.addEventListener('submit', event => {
 const login = document.querySelector('.login');
 login.addEventListener('submit', event => {
   event.preventDefault();
-  
+
   signInWithEmailAndPassword(auth, login.email.value, login.password.value)
     .then(cred => {
       console.log('User loggedin:', cred.user);
     })
-    .catch(err =>{
+    .catch(err => {
       console.log(err.message);
     });
 });
@@ -142,9 +142,9 @@ logout.addEventListener('click', () => {
     .then(() => {
       console.log('User has logged out.');
     })
-    .catch(err =>{
+    .catch(err => {
       console.log(err.message);
-    })  
+    })
 });
 
 // Subscribingto Auth Changes:
@@ -154,7 +154,7 @@ const unsubAuth = onAuthStateChanged(auth, user => {
 
 // Unsubscribe:
 const unsubButton = document.querySelector('.unsub');
-unsubButton.addEventListener('click', () =>{
+unsubButton.addEventListener('click', () => {
   unsubDoc();
   unsubCol();
   unsubAuth();
