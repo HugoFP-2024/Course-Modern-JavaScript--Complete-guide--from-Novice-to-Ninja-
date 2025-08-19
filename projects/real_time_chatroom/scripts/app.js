@@ -7,7 +7,7 @@ import { ChatUI } from './ui.js';
 const chatList = document.querySelector('.chat-list');
 
 // Class Instances
-const chatroom = new Chatroom('General', 'Shaun');
+const chatroom = new Chatroom('Gaming', 'Shaun');
 const chatUi = new ChatUI(chatList);
 
 // Getting the Chats and rendering them
