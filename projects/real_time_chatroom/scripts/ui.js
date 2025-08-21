@@ -5,8 +5,11 @@ export class ChatUI {
         this.list = list;
    }
 
+   clear() {
+    this.list.innerHTML = ``;
+   }
+
    render(data) {
-    
     const html = `
         <li class="list-group-item">
             <span class="username">${data.username}</span>
@@ -14,7 +17,6 @@ export class ChatUI {
             <div class="time">${formatDistanceToNow(data.created_at.toDate(), {addSuffix: true})}</div>
         </li>
     `;
-
     this.list.innerHTML += html;
    }
 }
