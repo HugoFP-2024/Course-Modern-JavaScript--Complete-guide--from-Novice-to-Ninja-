@@ -6,7 +6,7 @@ export class ChatUI {
    }
 
    render(data) {
-
+    
     const html = `
         <li class="list-group-item">
             <span class="username">${data.username}</span>

@@ -1,6 +1,6 @@
 // Importing the Firebase Functions that will be used in this project:
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, serverTimestamp, onSnapshot, query, where, orderBy } from "firebase/firestore"
+import { getFirestore, collection, addDoc, Timestamp, onSnapshot, query, where, orderBy } from "firebase/firestore"
 
 // Web app's Firebase configuration
 const firebaseConfig = {
@@ -29,7 +29,8 @@ export class Chatroom {
             message,
             username: this.username,
             room: this.room,
-            created_at: serverTimestamp(),
+            // created_at: (new Date()).getTime(),
+            created_at: Timestamp.fromDate(new Date())
         };
 
         const response = await addDoc(colRef, chat);
@@ -49,8 +50,9 @@ export class Chatroom {
     updateUsername(username){
         this.username = username;
     }
+
     updateRoom(room){
-        this.roomm = room;
+        this.room = room;
         if (this.unsub) {
             this.unsub;
         }
